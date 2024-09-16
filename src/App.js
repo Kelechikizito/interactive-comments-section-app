@@ -1,6 +1,10 @@
+import ModalPopup from "Components/ModalPopup"
+
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <ModalPopup />
+    </div>
   )
 }
 
