@@ -24,8 +24,25 @@ const Comment = () => {
 
   return (
     <div>
-      {/* Render your data here */}
-      {<p>{JSON.stringify(data, null, 2)}</p>}
+      <h2>Current User: {data?.currentUser?.username}</h2>{" "}
+      {/* Use optional chaining */}
+      <img
+        src={data?.currentUser?.image?.png}
+        alt={data?.currentUser?.username}
+      />
+      {/* Render comments */}
+      {data?.comments?.map((comment) => (
+        <div key={comment.id}>
+          <h3>{comment.user.username}</h3>
+          <p>{comment.content}</p>
+
+          {/* Render replies */}
+          {comment.replies?.map((reply) => <p>{reply.content}</p>) || "Unknown"}
+
+          <p>Score: {comment.score}</p>
+          <img src={comment.user.image.png} alt={comment.user.username} />
+        </div>
+      ))}
     </div>
   );
 };
