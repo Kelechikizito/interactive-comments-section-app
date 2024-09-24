@@ -3,7 +3,7 @@ import Comment from "./Comment";
 
 const Maincontainer = () => {
   return (
-    <div className="main-container">
+    <div className="flex">
       <Comment />
     </div>
   );

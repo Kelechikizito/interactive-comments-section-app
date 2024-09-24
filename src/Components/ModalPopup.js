@@ -16,8 +16,8 @@ const ModalPopup = () => {
   return (
     <div>
       <AlertDialog>
-        <AlertDialogTrigger>
-          <DeleteIcon />
+        <AlertDialogTrigger className="flex gap-1 text-red-600">
+          <DeleteIcon className="flex justify-center items-center text-center"/>
           Delete
         </AlertDialogTrigger>
         <AlertDialogContent>
