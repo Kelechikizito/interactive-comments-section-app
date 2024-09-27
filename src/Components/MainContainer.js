@@ -32,7 +32,7 @@ const Maincontainer = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex w-3/4 justify-center items-center">
       {/* Check if data is available */}
       {data &&
         groupCommentsInPairs(data.comments).map((commentPair, index) => (
