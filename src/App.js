@@ -3,8 +3,8 @@ import Maincontainer from "components/MainContainer";
 
 const App = () => {
   return (
-    <div>
-      <ModalPopup />
+    <div className="flex justify-center items-center py-16 px-40">
+      {/* <ModalPopup /> */}
       <Maincontainer />
     </div>
   );

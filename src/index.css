@@ -8,9 +8,6 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: hsl(228, 33%, 97%);
 }
 

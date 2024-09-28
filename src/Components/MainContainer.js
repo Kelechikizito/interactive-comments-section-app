@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./MainContainer.css";
 import Comment from "./Comment";
+import CommentReply from "./CommentReply";
 
 const Maincontainer = () => {
   const [data, setData] = useState(null);
@@ -32,11 +33,11 @@ const Maincontainer = () => {
   };
 
   return (
-    <div className="flex w-3/4 justify-center items-center">
+    <div className="flex w-3/4 flex-col gap-6">
       {/* Check if data is available */}
       {data &&
         groupCommentsInPairs(data.comments).map((commentPair, index) => (
-          <div key={index}>
+          <div key={index} className="flex flex-col gap-6">
             {/* Render the first comment in the pair */}
             <Comment
               key={commentPair[0].id}
@@ -44,6 +45,7 @@ const Maincontainer = () => {
               imageUsername={commentPair[0].user.username}
               username={commentPair[0].user.username}
               comment={commentPair[0].content}
+              createdDate={commentPair[0].createdAt}
             />
 
             {/* Render the second comment in the pair, if it exists */}
@@ -54,19 +56,28 @@ const Maincontainer = () => {
                 imageUsername={commentPair[1].user.username}
                 username={commentPair[1].user.username}
                 comment={commentPair[1].content}
+                createdDate={commentPair[1].createdAt}
               />
             )}
           </div>
         ))}
+
+      {/* Render replies */}
+      {data.comment.replies?.map((reply) => <p>{reply.content}</p>) || "Unknown"}
+
+      <p>Score: {data.comment.score}</p>
+      <img src={data.comment.user.image.png} alt={data.comment.user.username} />
+
+      <CommentReply
+        // key={commentPair[0].id}
+        // image={commentPair[0].user.image.png}
+        // imageUsername={commentPair[0].user.username}
+        // username={commentPair[0].user.username}
+        // comment={commentPair[0].content}
+        // createdDate={commentPair[0].createdAt}
+      />
     </div>
   );
 };
 
 export default Maincontainer;
-
-
-// {/* Render replies */}
-// {comment.replies?.map((reply) => <p>{reply.content}</p>) || "Unknown"}
-
-// <p>Score: {comment.score}</p>
-// <img src={comment.user.image.png} alt={comment.user.username} />
