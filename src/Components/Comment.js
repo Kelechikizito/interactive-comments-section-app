@@ -5,11 +5,11 @@ import { ReactComponent as ReplyIcon } from "../images/icon-reply.svg";
 
 const Comment = (props) => {
   return (
-    <div className="bg-white rounded-xl p-4 flex gap-8">
-      <div className="flex flex-col py-4 px-3 rounded-lg justify-between mb-4" style={{backgroundColor: 'hsl(228, 33%, 97%)'}}>
-        <div className="flex justify-center hover:cursor-pointer"><PlusIcon /></div>
+    <div className="bg-white rounded-xl flex flex-col-reverse p-4 md:flex-row gap-8">
+      <div className="flex md:flex-col py-4 px-3 rounded-lg justify-between mb-4" style={{backgroundColor: 'hsl(228, 33%, 97%)'}}>
+        <div className="flex justify-center items-center hover:cursor-pointer"><PlusIcon /></div>
         <h2 style={{color: 'hsl(212, 24%, 26%)'}}>55</h2>
-        <div className="flex justify-center hover:cursor-pointer"><MinusIcon /></div>
+        <div className="flex justify-center items-center hover:cursor-pointer"><MinusIcon /></div>
       </div>
 
       <div className="flex flex-col gap-4">
