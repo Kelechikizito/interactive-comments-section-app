@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./MainContainer.css";
 import Comment from "./Comment";
 import CommentReply from "./CommentReply";
+import NewComment from "./NewComment";
 
 const Maincontainer = () => {
   const [data, setData] = useState(null);
@@ -33,7 +34,7 @@ const Maincontainer = () => {
   };
 
   return (
-    <div className="flex w-3/4 flex-col gap-6">
+    <div className="flex w-3/4">
       {/* Check if data is available */}
       {data &&
         groupCommentsInPairs(data.comments).map((commentPair, index) => (
@@ -59,23 +60,37 @@ const Maincontainer = () => {
                 createdDate={commentPair[1].createdAt}
               />
             )}
+
+            <div className="flex flex-col gap-6 ml-8" style={{borderLeft: '0.25rem solid hsl(223, 19%, 93%)'}}>
+              {/* Render replies for each comment */}
+              {commentPair[0].replies?.map((reply) => (
+                <CommentReply
+                  key={reply.id}
+                  image={reply.user.image.png}
+                  imageUsername={reply.user.username}
+                  username={reply.user.username}
+                  comment={reply.content}
+                  createdDate={reply.createdAt}
+                  replyingTo={reply.replyingTo}
+                />
+              ))}
+
+              {commentPair[1]?.replies?.map((reply) => (
+                <CommentReply
+                  key={reply.id}
+                  image={reply.user.image.png}
+                  imageUsername={reply.user.username}
+                  username={reply.user.username}
+                  comment={reply.content}
+                  createdDate={reply.createdAt}
+                  replyingTo={reply.replyingTo}
+                />
+              ))}
+            </div>
+
+            <NewComment />
           </div>
         ))}
-
-      {/* Render replies */}
-      {data.comment.replies?.map((reply) => <p>{reply.content}</p>) || "Unknown"}
-
-      <p>Score: {data.comment.score}</p>
-      <img src={data.comment.user.image.png} alt={data.comment.user.username} />
-
-      <CommentReply
-        // key={commentPair[0].id}
-        // image={commentPair[0].user.image.png}
-        // imageUsername={commentPair[0].user.username}
-        // username={commentPair[0].user.username}
-        // comment={commentPair[0].content}
-        // createdDate={commentPair[0].createdAt}
-      />
     </div>
   );
 };

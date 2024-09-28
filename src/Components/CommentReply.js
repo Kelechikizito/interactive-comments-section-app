@@ -5,7 +5,7 @@ import { ReactComponent as ReplyIcon } from "../images/icon-reply.svg";
 
 const CommentReply = (props) => {
   return (
-    <div className="bg-white rounded-xl p-4 flex gap-8">
+    <div className="bg-white rounded-xl p-4 flex gap-8 ml-12">
       <div className="flex flex-col py-4 px-3 rounded-lg justify-between mb-4" style={{backgroundColor: 'hsl(228, 33%, 97%)'}}>
         <div className="flex justify-center hover:cursor-pointer"><PlusIcon /></div>
         <h2 style={{color: 'hsl(212, 24%, 26%)'}}>55</h2>
@@ -26,7 +26,7 @@ const CommentReply = (props) => {
           </div>
         </div>
 
-        <p style={{color: 'hsl(211, 10%, 45%)'}}>{props.comment}</p>
+        <p style={{color: 'hsl(211, 10%, 45%)'}}><span style={{color: 'hsl(238, 40%, 52%)'}} className='font-medium'>@{props.replyingTo}</span> {props.comment}</p>
       </div>
     </div>
   );
