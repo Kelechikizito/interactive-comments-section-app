@@ -61,7 +61,7 @@ const Maincontainer = () => {
               />
             )}
 
-            <div className="flex flex-col gap-6 ml-8" style={{borderLeft: '0.25rem solid hsl(223, 19%, 93%)'}}>
+            <div className="flex flex-col gap-6 ml-0 pl-4 sm:ml-8 sm:pl-8" style={{borderLeft: '0.25rem solid hsl(223, 19%, 93%)'}}>
               {/* Render replies for each comment */}
               {commentPair[0].replies?.map((reply) => (
                 <CommentReply
