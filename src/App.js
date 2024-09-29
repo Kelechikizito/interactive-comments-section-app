@@ -1,4 +1,4 @@
-import ModalPopup from "components/ModalPopup";
+// import ModalPopup from "components/ModalPopup";
 import Maincontainer from "components/MainContainer";
 
 const App = () => {
