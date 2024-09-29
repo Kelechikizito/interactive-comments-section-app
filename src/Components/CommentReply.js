@@ -8,7 +8,7 @@ const CommentReply = (props) => {
     <div className="bg-white rounded-xl flex flex-col-reverse p-4 md:flex-row gap-8">
       <div className="flex md:flex-col py-4 px-3 rounded-lg justify-between mb-4" style={{backgroundColor: 'hsl(228, 33%, 97%)'}}>
         <div className="flex justify-center hover:cursor-pointer items-center"><PlusIcon /></div>
-        <h2 style={{color: 'hsl(212, 24%, 26%)'}}>55</h2>
+        <h2 style={{color: 'hsl(212, 24%, 26%)'}}>{props.vote}</h2>
         <div className="flex justify-center hover:cursor-pointer items-center"><MinusIcon /></div>
       </div>
 
