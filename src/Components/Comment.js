@@ -8,7 +8,6 @@ const Comment = (props) => {
   const [voteCount, setVoteCount] = useState(props.vote);
 
   const incrementCount = () => {
-    console.log(voteCount)
     setVoteCount(voteCount + 1)
   }
 
@@ -21,7 +20,7 @@ const Comment = (props) => {
     <div className="bg-white rounded-xl flex flex-col-reverse p-4 md:flex-row gap-8">
       <div className="flex md:flex-col py-4 px-3 rounded-lg justify-between mb-4" style={{backgroundColor: 'hsl(228, 33%, 97%)'}}>
         <div className="flex justify-center items-center hover:cursor-pointer"><PlusIcon onClick={incrementCount}/></div>
-        <h2 style={{color: 'hsl(212, 24%, 26%)'}}>{voteCount || props.vote}</h2>
+        <h2 style={{color: 'hsl(212, 24%, 26%)'}}>{voteCount ?? props.vote}</h2>
         <div className="flex justify-center items-center hover:cursor-pointer"><MinusIcon onClick={decrementCount}/></div>
       </div>
 

@@ -1,15 +1,26 @@
 import './CommentReply.css';
+import { useState } from "react";
 import { ReactComponent as PlusIcon } from "../images/icon-plus.svg";
 import { ReactComponent as MinusIcon } from "../images/icon-minus.svg";
 import { ReactComponent as ReplyIcon } from "../images/icon-reply.svg";
 
 const CommentReply = (props) => {
+  const [voteCount, setVoteCount] = useState(props.vote);
+
+  const incrementCount = () => {
+    setVoteCount(voteCount + 1)
+  }
+
+  const decrementCount = () => {
+    setVoteCount(voteCount - 1)
+  }
+
   return (
     <div className="bg-white rounded-xl flex flex-col-reverse p-4 md:flex-row gap-8">
       <div className="flex md:flex-col py-4 px-3 rounded-lg justify-between mb-4" style={{backgroundColor: 'hsl(228, 33%, 97%)'}}>
-        <div className="flex justify-center hover:cursor-pointer items-center"><PlusIcon /></div>
-        <h2 style={{color: 'hsl(212, 24%, 26%)'}}>{props.vote}</h2>
-        <div className="flex justify-center hover:cursor-pointer items-center"><MinusIcon /></div>
+        <div className="flex justify-center hover:cursor-pointer items-center"><PlusIcon onClick={incrementCount}/></div>
+        <h2 style={{color: 'hsl(212, 24%, 26%)'}}>{voteCount ?? props.vote}</h2>
+        <div className="flex justify-center hover:cursor-pointer items-center"><MinusIcon onClick={decrementCount}/></div>
       </div>
 
       <div className="flex flex-col gap-4">
