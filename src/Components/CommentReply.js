@@ -1,4 +1,5 @@
 import './CommentReply.css';
+import ModalPopup from './ModalPopup';
 import { useState } from "react";
 import { ReactComponent as PlusIcon } from "../images/icon-plus.svg";
 import { ReactComponent as MinusIcon } from "../images/icon-minus.svg";
@@ -32,7 +33,8 @@ const CommentReply = (props) => {
           </div>
 
           <div className="flex gap-2 hover:cursor-pointer">
-            <div className="flex justify-center items-center"><ReplyIcon /></div>           
+            <div className="flex justify-center items-center"><ReplyIcon /></div>  
+            <ModalPopup className="flex justify-center items-center"/>         
             <div className="flex justify-center items-center font-medium" style={{color: 'hsl(212, 24%, 26%)'}}><p>Reply</p></div>
           </div>
         </div>
