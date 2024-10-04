@@ -1,5 +1,6 @@
 import './CommentReply.css';
 import ModalPopup from './ModalPopup';
+import EditButton from './EditButton';
 import { useState } from "react";
 import { ReactComponent as PlusIcon } from "../images/icon-plus.svg";
 import { ReactComponent as MinusIcon } from "../images/icon-minus.svg";
@@ -35,7 +36,10 @@ const CommentReply = (props) => {
           <div className="flex gap-2 hover:cursor-pointer">
             {/* Conditionally render different icons */}
             {props.isLastReply ? (
-              <ModalPopup/>    // Different icon for the last reply
+              <div className='flex gap-4'>
+                <div><ModalPopup className='flex items-center justify-center'/></div>  
+                <EditButton/>
+              </div>  // Different icon for the last reply
             ) : (
               <div className='flex gap-2 hover:cursor-pointer'>
                 <div className="flex justify-center items-center"><ReplyIcon /></div>  

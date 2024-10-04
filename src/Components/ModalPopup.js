@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from "react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -19,16 +19,18 @@ const ModalPopup = () => {
   return (
     <div>
       <AlertDialog>
-        <AlertDialogTrigger className="flex justify-center items-center gap-1 text-red-600">
-          <DeleteIcon/>
-          Delete
+        <AlertDialogTrigger className="flex !justify-center !items-center gap-2 text-red-600 font-medium">
+          <div className="flex justify-center items-center gap-2">
+            <DeleteIcon style={{ verticalAlign: "middle", display: "block" }} />
+            <span className="text-red-600 font-medium">Delete</span>
+          </div>
         </AlertDialogTrigger>
         <AlertDialogContent className="w-3/4 sm:w-fit text-justify rounded">
           <AlertDialogHeader>
             <AlertDialogTitle>Delete comment</AlertDialogTitle>
             <AlertDialogDescription className="">
-              Are you sure you want to delete this <br />comment? This will remove the
-              comment <br /> and can't be undone.
+              Are you sure you want to delete this <br />
+              comment? This will remove the comment <br /> and can't be undone.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter className="flex justify-between">
