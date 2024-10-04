@@ -33,9 +33,15 @@ const CommentReply = (props) => {
           </div>
 
           <div className="flex gap-2 hover:cursor-pointer">
-            <ModalPopup/>         
-            <div className="flex justify-center items-center"><ReplyIcon /></div>  
-            <div className="flex justify-center items-center font-medium" style={{color: 'hsl(212, 24%, 26%)'}}><p>Reply</p></div>
+            {/* Conditionally render different icons */}
+            {props.isLastReply ? (
+              <ModalPopup/>    // Different icon for the last reply
+            ) : (
+              <div className='flex gap-2 hover:cursor-pointer'>
+                <div className="flex justify-center items-center"><ReplyIcon /></div>  
+                <div className="flex justify-center items-center font-medium" style={{color: 'hsl(212, 24%, 26%)'}}><p>Reply</p></div>
+              </div>              
+            )}
           </div>
         </div>
 

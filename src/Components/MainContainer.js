@@ -24,22 +24,19 @@ const Maincontainer = () => {
       );
   }, []);
 
-  // Helper function to group comments in pairs
   const groupCommentsInPairs = (comments) => {
     const pairs = [];
     for (let i = 0; i < comments.length; i += 2) {
-      pairs.push(comments.slice(i, i + 2)); // Grouping two comments at a time
+      pairs.push(comments.slice(i, i + 2));
     }
     return pairs;
   };
 
   return (
     <div className="">
-      {/* Check if data is available */}
       {data &&
         groupCommentsInPairs(data.comments).map((commentPair, index) => (
           <div key={index} className="flex flex-col gap-6">
-            {/* Render the first comment in the pair */}
             <Comment
               key={commentPair[0].id}
               image={commentPair[0].user.image.png}
@@ -50,7 +47,6 @@ const Maincontainer = () => {
               vote={commentPair[0].score}
             />
 
-            {/* Render the second comment in the pair, if it exists */}
             {commentPair[1] && (
               <Comment
                 key={commentPair[1].id}
@@ -63,20 +59,31 @@ const Maincontainer = () => {
               />
             )}
 
-            <div className="flex flex-col gap-6 ml-0 pl-4 sm:ml-8 sm:pl-8" style={{borderLeft: '0.25rem solid hsl(223, 19%, 93%)'}}>
-              {commentPair[1]?.replies?.map((reply) => (
-                <CommentReply
-                  key={reply.id}
-                  image={reply.user.image.png}
-                  imageUsername={reply.user.username}
-                  username={reply.user.username}
-                  comment={reply.content}
-                  createdDate={reply.createdAt}
-                  replyingTo={reply.replyingTo}
-                  vote={reply.score}
-                />
-              ))}
-            </div>
+            {/* Check if there are replies */}
+            {commentPair[1]?.replies && (
+              <div
+                className="flex flex-col gap-6 ml-0 pl-4 sm:ml-8 sm:pl-8"
+                style={{ borderLeft: "0.25rem solid hsl(223, 19%, 93%)" }}
+              >
+                {commentPair[1].replies.map((reply, index) => {
+                  return (
+                    <CommentReply
+                      key={reply.id}
+                      image={reply.user.image.png}
+                      imageUsername={reply.user.username}
+                      username={reply.user.username}
+                      comment={reply.content}
+                      createdDate={reply.createdAt}
+                      replyingTo={reply.replyingTo}
+                      vote={reply.score}
+                      isLastReply={
+                        index === commentPair[1].replies.length - 1
+                      } // Determine if it's the last reply
+                    />
+                  );
+                })}
+              </div>
+            )}
 
             <NewComment />
           </div>
