@@ -18,12 +18,10 @@ const ModalPopup = () => {
 
   return (
     <div>
-      <AlertDialog>
+      <AlertDialog className='mb-0'>
         <AlertDialogTrigger className="flex !justify-center !items-center gap-2 text-red-600 font-medium">
-          <div className="flex justify-center items-center gap-2">
-            <DeleteIcon style={{ verticalAlign: "middle", display: "block" }} />
+            <DeleteIcon/>
             <span className="text-red-600 font-medium">Delete</span>
-          </div>
         </AlertDialogTrigger>
         <AlertDialogContent className="w-3/4 sm:w-fit text-justify rounded">
           <AlertDialogHeader>
