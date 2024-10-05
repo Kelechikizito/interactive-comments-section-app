@@ -63,7 +63,7 @@ const CommentReply = (props) => {
         </div>
       </div>
 
-      {showReply && <NewComment />}
+      {showReply && <NewComment replyingTo={props.username}/>}
     </div>
     
   );
