@@ -1,4 +1,3 @@
-import "./Comment.css";
 import { useState } from "react";
 import NewComment from './NewComment';
 import { ReactComponent as PlusIcon } from "../images/icon-plus.svg";

@@ -1,4 +1,3 @@
-import './CommentReply.css';
 import NewComment from './NewComment';
 import ModalPopup from './ModalPopup';
 import EditButton from './EditButton';
@@ -63,7 +62,7 @@ const CommentReply = (props) => {
         </div>
       </div>
 
-      {showReply && <NewComment replyingTo={props.username}/>}
+      {showReply && <NewComment/>}
     </div>
     
   );

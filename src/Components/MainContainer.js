@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import "./MainContainer.css";
 import Comment from "./Comment";
 import CommentReply from "./CommentReply";
 import NewComment from "./NewComment";
