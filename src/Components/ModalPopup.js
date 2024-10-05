@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -14,7 +14,15 @@ import { Button } from "../@/components/ui/button";
 import { ReactComponent as DeleteIcon } from "../images/icon-delete.svg";
 
 const ModalPopup = () => {
-  const [deleteComment, setDeleteComment] = useState(false);
+  // const [deleteComment, setDeleteComment] = useState(false);
+
+  // useEffect(() => {
+  //   localStorage.setItem('items', JSON.stringify(items));
+  // }, [items]);
+
+  const handleDelete = () => {
+    console.log('Kaykay is going to be the richest man in the world');
+  }
 
   return (
     <div>
@@ -40,7 +48,7 @@ const ModalPopup = () => {
                 NO, CANCEL
               </Button>
             </AlertDialogCancel>
-            <AlertDialogAction asChild className="flex-1">
+            <AlertDialogAction asChild className="flex-1" onClick={handleDelete}>
               <Button
                 variant="destructive"
                 className="bg-red-500 hover:bg-red-400 text-white"
