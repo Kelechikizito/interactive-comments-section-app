@@ -1,9 +1,25 @@
+import CommentReply from "./CommentReply";
 import { useState } from "react";
 import { Textarea } from "../@/components/ui/textarea";
 import { Button } from "../@/components/ui/button";
 import JuliusOmoAvatar from "../images/avatars/image-juliusomo.png";
 
 const NewComment = (props) => {
+  const [textareaValue, setTextareaValue] = useState("");
+
+  const handleTextareaChange = (e) => {
+    setTextareaValue(e.target.value)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(textareaValue)
+    if (textareaValue.trim()) {
+    //   setCreatedDivs([...createdDivs, textareaValue])
+      setTextareaValue('')
+    }
+  }
+
   // localStorage.setItem('commentReplies', JSON.stringify(props.comment))
   // console.log(JSON.parse(localStorage.getItem('commentReplies')))
 
@@ -11,7 +27,7 @@ const NewComment = (props) => {
     <div className="bg-white rounded-xl p-4 flex justify-between gap-4">
       <img src={JuliusOmoAvatar} alt="JuliusOmoAvatar" className="size-8" />
 
-      <div className="flex justify-between w-full gap-4">
+      <form className="flex justify-between w-full gap-4" onSubmit={handleSubmit}>
         <Textarea
           placeholder="Add a comment..."
           className="h-24 focus:border-black focus:border-2 focus:outline-2"
@@ -25,7 +41,7 @@ const NewComment = (props) => {
         >
           SEND
         </Button>
-      </div>
+      </form>
     </div>
   );
 };
