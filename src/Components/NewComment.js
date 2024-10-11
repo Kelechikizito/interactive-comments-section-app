@@ -36,7 +36,7 @@ const NewComment = (props) => {
           <Textarea
             placeholder="Add a comment..."
             className="h-24 focus:border-black focus:border-2 focus:outline-2"
-            value={textareaValue}
+            value={'hh ' && textareaValue}
             onChange={handleTextareaChange}
           />
           <Button
