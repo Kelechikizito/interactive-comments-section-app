@@ -31,7 +31,7 @@ const CommentReply = (props) => {
           <div className="flex justify-center hover:cursor-pointer items-center"><MinusIcon onClick={decrementCount}/></div>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 w-fit">
           <div className="flex justify-between">
             <div className="flex gap-4">
               <img src={props.image} alt={props.imageUsername} className="size-8"/>
