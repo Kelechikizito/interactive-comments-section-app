@@ -31,13 +31,13 @@ const CommentReply = (props) => {
           <div className="flex justify-center hover:cursor-pointer items-center"><MinusIcon onClick={decrementCount}/></div>
         </div>
 
-        <div className="flex flex-col gap-4 w-fit">
+        <div className="flex flex-col gap-4">
           <div className="flex justify-between">
             <div className="flex gap-4">
               <img src={props.image} alt={props.imageUsername} className="size-8"/>
               <div className="flex justify-center items-center font-bold" style={{color: 'hsl(212, 24%, 26%)'}}><h3>{props.username}</h3></div>
               {props.isLastReply ? (
-                  <div className='flex jsutify-center items-center text-white font-bold'><h3 style={{backgroundColor: 'hsl(238, 40%, 52%)'}} className='px-1.5 relative right-2 text-xs rounded-sm py-0.5'>you</h3></div>                         // Different icon for the last reply
+                  <div className='flex justify-center items-center text-white font-bold'><h3 style={{backgroundColor: 'hsl(238, 40%, 52%)'}} className='px-1.5 relative right-2 text-xs rounded-sm py-0.5'>you</h3></div>                         // Different icon for the last reply
               ) : null}
               <div className="flex justify-center items-center" style={{color: 'hsl(211, 10%, 45%)'}}><p>{props.createdDate}</p></div>
             </div>
